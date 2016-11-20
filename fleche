@@ -1,0 +1,33 @@
+package robot1;
+
+public class fleche {
+	private String Est ;
+	private String Ouest ;
+	private String Nord ;
+	private String Sud ;
+	public String getEst() {
+		return Est;
+	}
+	public void setEst(String est) {
+		Est = est;
+	}
+	public String getOuest() {
+		return Ouest;
+	}
+	public void setOuest(String ouest) {
+		Ouest = ouest;
+	}
+	public String getNord() {
+		return Nord;
+	}
+	public void setNord(String nord) {
+		Nord = nord;
+	}
+	public String getSud() {
+		return Sud;
+	}
+	public void setSud(String sud) {
+		Sud = sud;
+	}
+	
+}
