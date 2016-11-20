@@ -1,0 +1,37 @@
+package robot1;
+
+public class RobotNG extends Robot_TP {
+	private String Nom ;
+	private Posistion Pos ;
+	private fleche Direction ;
+	private bool Turbo ;
+	public RobotNG(String Nom,fleche Direction , Posistion Pos){
+		super(Nom, Pos,Direction,Droite());
+	}
+	 public Posistion avancer2(int n){
+		 for( int i  = 1 ; i<=n ; i++ )
+			 Droite() ;
+	 }
+	 public String gauche(){
+		 for(int i =1; i<=3; i++){
+			 Droite();
+		 }
+	 }
+	 public String Demi_Tour(){
+		 for(int i =1 ;  i<=2; i++)
+			 Droite();
+	 
+	 }
+
+	 public Posistion avancer2(){
+		 int n ;
+		 if(Direction.equals("Est")) {
+			 return Posistion.setX.Posistion.getX()+n ;
+			 if(Direction.equals("Nord")) {
+				 return Posistion.setX.Posistion.getX()+n ;
+						 
+		 }
+		 
+			 
+	 }
+	 
