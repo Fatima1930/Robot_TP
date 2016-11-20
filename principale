@@ -1,0 +1,16 @@
+package robot1;
+// j ai pas reussi a finir le main
+public class Principale {
+
+	public static void main(String[] args) {
+		Robot_TP T[ ] = new Robot_TP [5];
+		Robot_TP R1,R2, R3, R4, R5;
+		T[0]= new Robot_TP (R1,(0,0),"Est");
+		T[0]= new Robot_TP (R2,(0,1),"Sud");
+		T[0]= new Robot_TP (R3,(0,2),"Ouest");
+		T[0]= new Robot_TP (R4,(0,3),"Nord");
+		T[0]= new Robot_TP (R5,(0,4),"Est");
+
+	}
+
+}
