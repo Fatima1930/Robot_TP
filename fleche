@@ -1,33 +1,67 @@
 package robot1;
 
-public class fleche {
-	private String Est ;
-	private String Ouest ;
-	private String Nord ;
-	private String Sud ;
-	public String getEst() {
-		return Est;
-	}
-	public void setEst(String est) {
-		Est = est;
-	}
-	public String getOuest() {
-		return Ouest;
-	}
-	public void setOuest(String ouest) {
-		Ouest = ouest;
-	}
-	public String getNord() {
-		return Nord;
-	}
-	public void setNord(String nord) {
-		Nord = nord;
-	}
-	public String getSud() {
-		return Sud;
-	}
-	public void setSud(String sud) {
-		Sud = sud;
-	}
-	
-}
+public class RobotNG extends Robot
+{
+ private boolean turbo;
+
+ public RobotNG(String nom)
+ {
+ super(nom);
+ turbo = false;
+ }
+ public RobotNG(String nom, int x, int y, String direction)
+ {
+ super(nom, x, y, direction);
+ turbo = false;
+ }
+
+ /**
+ * active/désactive le mode Turbo
+ * @param activer true pour activer, false pour désactiver
+ */
+ public void setTurbo(boolean activer)
+ {
+ turbo = activer;
+ }
+
+ /**
+ * indique si le mode Turbo est activé
+ * @return true si activé, false sinon
+ */
+ public boolean hasTurbo()
+ {
+ return turbo;
+ }
+ /**
+ * affiche l'état du robot
+ * (redéfinie pour indiquer si le mode Turbo est activé)
+ */
+ public void afficher()
+ {
+ super.afficher();
+ System.out.println("turbo : " + (turbo?"ON":"OFF"));
+ }
+ /**
+ * Méthode avance() redéfinie.
+ * Avance de 3 pas si le mode Turbo est actif
+ */
+ public void avance()
+ {
+ if(turbo) {
+ avance(3);
+ } else {
+ super.avance(); // appel de la méthode avance() de Robot
+ }
+ }
+
+ /**
+ * avance de plusieurs pas
+ *
+ * @param pas le nombre de pas (sera multiplié par 3 si le mode Turbo est actif)
+ */
+ public void avance(int pas)
+ {
+ if(turbo) {
+ ppas *= 3;
+ }
+ ...
