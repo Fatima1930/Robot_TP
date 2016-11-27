@@ -1,37 +1,60 @@
 package robot1;
 
-public class RobotNG extends Robot_TP {
-	private String Nom ;
-	private Posistion Pos ;
-	private fleche Direction ;
-	private bool Turbo ;
-	public RobotNG(String Nom,fleche Direction , Posistion Pos){
-		super(Nom, Pos,Direction,Droite());
-	}
-	 public Posistion avancer2(int n){
-		 for( int i  = 1 ; i<=n ; i++ )
-			 Droite() ;
-	 }
-	 public String gauche(){
-		 for(int i =1; i<=3; i++){
-			 Droite();
-		 }
-	 }
-	 public String Demi_Tour(){
-		 for(int i =1 ;  i<=2; i++)
-			 Droite();
-	 
-	 }
+public class RobotNG extends Robot {
+ public RobotNG(String nom)
+ {
+ super(nom);
+ }
+ public RobotNG(String nom, int x, int y, String direction)
+ {
+ super(nom, x, y, direction);
+ }
 
-	 public Posistion avancer2(){
-		 int n ;
-		 if(Direction.equals("Est")) {
-			 return Posistion.setX.Posistion.getX()+n ;
-			 if(Direction.equals("Nord")) {
-				 return Posistion.setX.Posistion.getX()+n ;
-						 
-		 }
-		 
-			 
-	 }
+ /**
+ * avance de plusieurs pas
+ *
+ * @param pas le nombre de pas
+ */
+ public void avance(int pas)
+ {
+ if (getDirection().equals("Nord"))
+ setY(getY() + pas);
+ else if (getDirection().equals("Est"))
+ setX(getX() + pas);
+ else if (getDirection().equals("Sud"))
+ setY(getY() - pas);
+ else // "Ouest"
+ setX(getX() - pas);
+ }
+
+ /**
+ * tourne à gauche de 90°
+ */
+ public void gauche()
+ {
+ if (getDirection().equals("Nord"))
+ setDirection("Ouest");
+ else if (getDirection().equals("Est"))
+ setDirection("Nord");
+ else if (getDirection().equals("Sud"))
+ setDirection("Est");
+ else // "Ouest"
+ setDirection("Sud");
+ }
+
+ /**
+ * fait demi-tour
+ */
+ public void demiTour()
+ {
+ if (getDirection().equals("Nord"))
+ setDirection("Sud");
+ else if (getDirection().equals("Sud"))
+ setDirection("Nord");
+ else if (getDirection().equals("Ouest"))
+ setDirection("Est");
+ else // "Est"
+ setDirection("Ouest");
+ } }
+
 	 
