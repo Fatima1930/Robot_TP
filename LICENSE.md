@@ -1,78 +1,61 @@
-package robot1;
+package Robot;
 
-public class Robot_TP {
-	private String Nom ;
-	private Posistion Pos ;
-	private fleche Direction ;
-	public Robot_TP( String  Nom, fleche  Direction , Posistion Pos){
-		this.Pos =Pos ;
-		this.Direction = Direction ;
-		this.Nom= Nom ;
-	}
-	
-	
-	public Posistion getPos() {
-		return Pos;
-	}
-	public void setPos(Posistion pos) {
-		Pos = pos;
-	}
-	public Robot_TP(){ 
-		this.Nom = Nom ;
-		this.Direction = Direction ;
-		  this.Pos =Pos ;
-		
-		
-	}
-	public Robot_TP ( String Nom, fleche Direction ,String Position ){
-		
-	}
-	public String getNom() {
-		return Nom;
-	}
-	public void setNom(String nom) {
-		Nom = nom;
-	}
-	public fleche getDirection() {
-		return Direction;
-	}
-	public void setDirection(fleche direction) {
-		Direction = direction;
-	}
-	public String avancer(){
-		fleche Est;
-		if(Direction = Est){ 
-			return Posistion.setX(Posistion.getX()+1);
-		fleche Nord;
-		if(Direction = Nord ){
-			return Posistion.setY(Posistion.getY()+1);
-		}
-		
-	}
+{
+ private String nom;
+ private int x;
+ private int y;
+ private String direction;
 
-	}
-	public String Droite(){
-		if(Direction.equals("Nord")){
-			return "Est" ;
-		}
-		if(Direction.equals("Est")){
-			return "Sud" ;
-		}
-	
-
-
-
-	if(Direction.equals("Sud")){
-		return " Ouest " ;
-	}
-	
-	if(Direction.equals("Ouest")){
-		return  "Nord " ;
-}
-	}
-	
-public void aficher(){
-	System.out.println("le nom :" + Nom + "la position est:" + " Pos" + "la direction est:"+ "Direction"  );
-}
-
+ public Robot(String nom)
+ {
+ this.nom = nom;
+ x = y = 0;
+ direction = "Est";
+ }
+ public Robot(String nom, int x, int y, String direction)
+ {
+ this(nom);
+ this.x = x;
+ this.y = y;
+ if (direction.equals("Nord") || direction.equals("Sud")
+ || direction.equals("Ouest"))
+ this.direction = direction; // garder "Est" si direction invalide
+ }
+ /**
+ * avance d'un pas
+ */
+ public void avance()
+ {
+ if (direction.equals("Nord"))
+ y++;
+ else if (direction.equals("Est"))
+ x++;
+ else if (direction.equals("Sud"))
+ y--;
+ else // (direction.equals("Ouest"))
+ x--;
+ }
+ /**
+ * tourne à droite de 90°
+ */
+ public void droite()
+ {
+ if (direction.equals("Nord"))
+ direction = "Est";
+ else if (direction.equals("Est"))
+ direction = "Sud";
+ else if (direction.equals("Sud"))
+ direction = "Ouest";
+ else // (direction.equals("Ouest"))
+ direction = "Nord";
+ }
+ /**
+ * affiche l'état du robot
+ */
+ public void afficher()
+ {
+ System.out.println("nom : " + nom);
+ System.out.println("position : (" + x + "," + y +")");
+ System.out.println("direction : " + direction);
+ }
 }
